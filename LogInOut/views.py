@@ -17,7 +17,9 @@ class SignUpView(View):
     def post(self,request):
         fm = SignUpForm(request.POST)
         if fm.is_valid():
-            fm.save()
+            fm.save() #user = fm.save()
+            # user.set_password(user.password) #for more encryption techniques.
+            #user.save() 
             messages.success(request,'Congratulation! Registration successful.')
             return redirect('/signup')
         else:
@@ -42,6 +44,7 @@ class LoginView(View):
                 messages.success(request, 'Logged in Successfully!!')
                 return HttpResponseRedirect('/')
             else:
-                render(request,'LogInOut/login.html')
+                messages.error(request,'username or password not correct')
+                return redirect('LogInOut/login.html')
         else:
-            render(request,'LogInOut/login.html')
+            return render(request,'LogInOut/login.html',{'form':fm})

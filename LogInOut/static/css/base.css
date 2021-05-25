@@ -1,9 +1,10 @@
 body{
   background-color: #6d7579;
-  background-image: url('/static/images/img.jpg');
+  background-image: url('/static/images/img.jpg'), url('/static/images/img1.jpg'), url('/static/images/bg.jpeg');
   background-repeat: no-repeat;
-  background-size: 100% auto;
-  /* border: 1px solid red; */
+  background-size: cover;
+  background-attachment: fixed;
+  /* top: 56px; */
 }
 .click__link{
     text-decoration: none;
